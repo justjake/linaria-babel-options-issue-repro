@@ -16,6 +16,12 @@ const presetEnv = [
 const babelOptions = {
   presets: ["@babel/preset-react", "@babel/preset-typescript"],
   plugins: [
+    /**
+     * This babel configuration *should* allow the chroma-js import to work,
+     * but, it doesn't because linaria specifies its own
+     * plugin-transform-modules-commonjs, *without* `noInterop: true`
+     */
+    ["@babel/plugin-transform-modules-commonjs", { noInterop: true }],
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-react-inline-elements",
     //"@babel/plugin-transform-typescript",
