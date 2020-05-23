@@ -1,7 +1,7 @@
 // https://github.com/callstack/linaria/issues/447#issuecomment-620656902
 const shaker = require("linaria/lib/babel/evaluators/shaker").default;
 const extractor = require("linaria/lib/babel/evaluators/extractor").default;
-const action = shaker;
+const action = extractor;
 
 const presetEnv = [
   "@babel/preset-env",
@@ -21,7 +21,10 @@ const babelOptions = {
      * but, it doesn't because linaria specifies its own
      * plugin-transform-modules-commonjs, *without* `noInterop: true`
      */
-    ["@babel/plugin-transform-modules-commonjs", { noInterop: true }],
+    [
+      "@babel/plugin-transform-modules-commonjs",
+      { noInterop: true, JAKE: true },
+    ],
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-react-inline-elements",
   ],

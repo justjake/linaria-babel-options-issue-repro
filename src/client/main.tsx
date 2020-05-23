@@ -17,13 +17,6 @@ const color: string = (() => {
 
 let appStyle = "dummy-class-if-comment-out-linaria";
 
-const otherStyles: React.CSSProperties = {
-  minWidth: 500,
-  minHeight: 500,
-  padding: "1em",
-  border: `1px solid ${color}`,
-};
-
 /**
  * Comment or uncomment this block to toggle the issue.
  */
@@ -34,9 +27,17 @@ appStyle = css`
 `;
 
 function App() {
+  const otherStyles: React.CSSProperties = {
+    minWidth: 500,
+    minHeight: 500,
+    padding: "1em",
+    border: `1px solid ${color}`,
+  };
+
   return (
     <div className={appStyle} style={otherStyles}>
-      React app mounted. The value of color is "{color}"
+      React app mounted. If the background is {color} (red), then Linaria is
+      working.
     </div>
   );
 }
