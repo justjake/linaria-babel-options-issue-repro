@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import * as chroma from "chroma-js";
 import { css } from "linaria";
 
-const color = (() => {
+const color: string = (() => {
   /**
    * Uncomment this to inspect how Chroma was imported.
    */
@@ -17,6 +17,13 @@ const color = (() => {
 
 let appStyle = "dummy-class-if-comment-out-linaria";
 
+const otherStyles: React.CSSProperties = {
+  minWidth: 500,
+  minHeight: 500,
+  padding: "1em",
+  border: `1px solid ${color}`,
+};
+
 /**
  * Comment or uncomment this block to toggle the issue.
  */
@@ -28,7 +35,7 @@ appStyle = css`
 
 function App() {
   return (
-    <div className={appStyle}>
+    <div className={appStyle} style={otherStyles}>
       React app mounted. The value of color is "{color}"
     </div>
   );

@@ -24,7 +24,6 @@ const babelOptions = {
     ["@babel/plugin-transform-modules-commonjs", { noInterop: true }],
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-transform-react-inline-elements",
-    //"@babel/plugin-transform-typescript",
   ],
 };
 
