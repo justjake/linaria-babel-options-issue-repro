@@ -1,0 +1,41 @@
+{
+	"version": "3.4",
+	"compilerOptions": {
+		// The codebase is written and typechecked with the most modern features.
+		// We override these in other tsconfig.*.json to be compatible with those platforms.
+		"target": "ESNext",
+		"module": "ESNext",
+
+		// This is needed because ES modules do not resolve non-relative imports.
+		// https://github.com/babel/babel/issues/10237#issuecomment-513028440
+		"moduleResolution": "Node",
+
+		// This is needed because many of our node_modules use `module.exports = X`.
+		// and we need to map that into `export default X` for use as ES modules.
+		"allowSyntheticDefaultImports": true,
+
+		// Type-safety
+		"strictNullChecks": true,
+		"strictBindCallApply": true,
+		"strictPropertyInitialization": true,
+		"noImplicitThis": true,
+
+		"removeComments": true,
+
+		"sourceMap": true,
+		"allowJs": true,
+		"resolveJsonModule": true,
+
+		"jsx": "react",
+		"lib": ["ES2018", "DOM", "ScriptHost", "ESNext.AsyncIterable"],
+		"incremental": true,
+		"outDir": "./build/"
+	},
+	"include": ["src/**/*"],
+	"exclude": [
+		"node_modules",
+		"src/desktop/node_modules",
+		"src/mobile/node_modules",
+		"src/tools/notion-intl/node_modules"
+	]
+}

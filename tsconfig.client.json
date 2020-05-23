@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig",
+	"compilerOptions": {
+		// Compile to ESNext and let Babel tranform into older JavaScript using
+		// the @babel/preset-env plugin.
+		"module": "ESNext",
+		"target": "ESNext",
+		// Preserve comments so that the @babel/plugin-syntax-dynamic-import can
+		// name chunks properly. Webpack will rip out all the comments in later.
+		"removeComments": false
+	}
+}
