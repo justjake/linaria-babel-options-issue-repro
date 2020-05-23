@@ -13,7 +13,15 @@ const presetEnv = [
   },
 ];
 
-const babelOptions = require("./babel.config.json");
+const babelOptions = {
+  presets: ["@babel/preset-react", "@babel/preset-typescript"],
+  plugins: [
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-react-inline-elements",
+    //"@babel/plugin-transform-typescript",
+  ],
+};
+
 if (action !== shaker) {
   // The shaker unshifts its own copy of preset-env, which will blow
   // up we we give one, too.

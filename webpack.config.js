@@ -54,21 +54,24 @@ function rootPath(part) {
   return pathlib.join(__dirname, part);
 }
 
+const watch = true;
 const minify = false;
 const offline = false;
 const typecheck = false;
+const sourcemaps = true;
+const outputPath = rootPath("build/static");
 
-moduel.exports = {
+module.exports = {
   mode: minify ? "production" : "development",
   watch,
-  entry: rootPath("src/client/main.ts"),
+  entry: rootPath("src/client/main.tsx"),
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
   output: {
     // Use content hashing for long term file caching when building for offline.
     filename: offline ? "app-[contenthash].js" : "app.js",
-    path: rootPath("build/static"),
+    path: outputPath,
     chunkFilename: minify || offline ? "[name]-[contenthash].js" : "[name].js",
     pathinfo: true,
     publicPath: "/",
@@ -153,5 +156,10 @@ moduel.exports = {
     setImmediate: false,
     debug: false,
     crypto: false,
+  },
+  devServer: {
+    contentBase: outputPath,
+    compress: true,
+    port: 9000,
   },
 };
