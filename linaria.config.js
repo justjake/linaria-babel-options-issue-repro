@@ -1,7 +1,7 @@
 // https://github.com/callstack/linaria/issues/447#issuecomment-620656902
 const shaker = require("linaria/lib/babel/evaluators/shaker").default;
 const extractor = require("linaria/lib/babel/evaluators/extractor").default;
-const action = extractor;
+const action = shaker;
 
 const presetEnv = [
   "@babel/preset-env",
